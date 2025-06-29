@@ -32,13 +32,13 @@ export default function GlobePage() {
     const fetchLocation = async () => {
       try {
         const response = await fetch("/api/trips");
-        console.log(response);
+
         const data = await response.json();
         setLocations(data);
         const countries = new Set<string>(
           data.map((loc: TransformedLocation) => loc.country)
         );
-        // console.log(countries);
+
         setVisitedCountries(countries);
       } catch (error) {
         console.log("error", error);
